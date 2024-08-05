@@ -1,0 +1,42 @@
+hr {
+    border: 1px solid #bdbdbd; /* Cambia el color y el grosor de la línea */
+    margin: 0; /* Ajusta el margen si es necesario */
+  }
+
+  .small-image {
+    width: 64px;
+    height: 64px;
+  }
+
+  .button-like {
+    font-size: 0.85em;
+    color: #4D93FB;
+    cursor: pointer;
+    display: inline-block;
+    padding: 5px 10px;
+    border: 1px solid transparent;
+    border-radius: 4px;
+  }
+  .center-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%; /* Asegúrate de que el contenedor tenga una altura definida */
+  }
+  .price-container {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    height: 100%;
+  }
+  
+  .price {
+    font-size: 1.5em;
+    font-weight: bold;
+  }
+  
+  .price .decimal {
+    font-size: 0.75em;
+    opacity: 0.7;
+  }
+  
