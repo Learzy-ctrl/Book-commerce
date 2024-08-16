@@ -8,7 +8,7 @@ const Starter = () => {
   const [blogData, setBlogData] = useState([]);
 
   useEffect(() => {
-    axios.get('http://localhost:1397/api/libro')
+    axios.get('https://tendaservicios-api-libro.onrender.com/api/libro')
       .then(response => {
         setBlogData(response.data);
       })

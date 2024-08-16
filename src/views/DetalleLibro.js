@@ -17,7 +17,7 @@ const DetalleLibro = () => {
     useEffect(() => {
         const fetchBookData = async () => {
             try {
-                const response = await axios.get(`http://localhost:1397/api/libro/${id}`);
+                const response = await axios.get(`https://tendaservicios-api-libro.onrender.com/api/libro/${id}`);
                 setBookData(response.data);
             } catch (error) {
                 console.error("Error fetching book data:", error);
@@ -38,12 +38,13 @@ const DetalleLibro = () => {
         const cantidad = Number(selectedOption); // Asegúrate de convertir a número
         const productoLista = Array(cantidad).fill(id);
         const carritoId = localStorage.getItem('carritoId');
-
+        console.log(carritoId);
         try {
             if (carritoId) {
+                console.log("put");
                 // Hacer PUT si ya existe carritoId en localStorage
                 console.log(productoLista);
-                await axios.put('http://localhost:7258/api/carritocompras', {
+                await axios.put('https://tiendaservicios-api-carritocompra.onrender.com/api/carritocompras', {
                     carritoSessionId: parseInt(carritoId),
                     productoLista
                 });
@@ -52,9 +53,10 @@ const DetalleLibro = () => {
                 setAlertColor('success');
             } else {
                 // Hacer POST si no existe carritoId en localStorage
+                console.log("post");
                 const fechaCreacionSesion = new Date().toISOString();
                 
-                const response = await axios.post('http://localhost:7258/api/carritocompras', {
+                const response = await axios.post('https://tiendaservicios-api-carritocompra.onrender.com/api/carritocompras', {
                     fechaCreacionSesion,
                     productoLista
                 });
